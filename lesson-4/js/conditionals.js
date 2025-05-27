@@ -35,6 +35,7 @@ function setWeather() {
 
 	/* STEP 3: Add a nested IF/ELSE statement inside the 'sunny' condition above that tests for temperature, and if it is equal to or greater than 15, turn the page background orange, otherwise turn it lightblue */
 
+	
 	/* STEP 4: Logical operators - and, or, not (delete multi-line comment delimiters below) */
 	// STEP 4a: AND - && (It's sunny AND it's at least 15deg)
 /*
