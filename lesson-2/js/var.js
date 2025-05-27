@@ -12,8 +12,9 @@ Don't confuse a variable with no value with one that doesn't exist at all */
 var1 = 10;
 var2 = "hello world";
 var3 = true;
-var4 = [1, 2, 3, 4, 5];
+var4 = [1, 2, 3, 4, 5, ["hello"]];
 var5 = { name: "John", age: 100, city: "New" };
+
 
 /* STEP 3: Updating variables
 Once a variable has been declared, this can be done any time */
