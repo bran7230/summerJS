@@ -7,10 +7,11 @@ function random(number) {
 }
 function bgChange() {
     let rndCol = 'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
+    console.log(rndCol);
     document.body.style.backgroundColor = rndCol;
 }
 // Event Listeners/Handlers
-btn.onclick = bgChange;
+//btn.onclick = bgChange;
 
 
 /* STEP 1: Experiment with a variety of different events - comment out the above onclick listener and build an alternate one below - try the following - onfocus/onblur, ondblclick, onmouseover/onmouseout, window.onkeypress/onkeydown/onkeyup
@@ -21,8 +22,13 @@ btn.onclick = bgChange;
 // Comment out the above event listener/handler, and add the same event as an attribute directly to the button element
 
 /* STEP 3: Let's apply event handlers/listeners to a group of buttons - comment out the above BUTTON element, and create three new ones, A, B, and C */
+const buttons = document.querySelectorAll("button");
+for(let i = 0; i < buttons.length; i++){
+    //buttons[i].onclick = bgChange;
+    buttons[i].addEventListener('click', bgChange);
+}
 
-
+buttons[1].removeEventListener('click', bgChange); // This will remove the event listener from button B, so it won't change the background color when clicked
 /* STEP 4a: addEventListener() and removeEventListener()
 Let's rewrite the above code with these two methods - comment out the A, B, C buttons and restore the original button - then comment out the above code */
 

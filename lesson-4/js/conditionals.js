@@ -33,28 +33,53 @@ function setWeather() {
 	console.log(`The weather is: ${choice}, and the temperature is: ${temperature}.`);
 	/* STEP 2b: Craft an IF/ELSEIF/ELSE that changes the src attribute of the icon element to the appropriate .svg file in the images folder */
 
-	/* STEP 3: Add a nested IF/ELSE statement inside the 'sunny' condition above that tests for temperature, and if it is equal to or greater than 15, turn the page background orange, otherwise turn it lightblue */
-
+	if (choice === "sunny"){
+		icon.setAttribute("src", "images/sunny.svg");
+		setBackgroundColor();
+	} 
 	
+	else if (choice === "rainy"){
+		icon.setAttribute("src", "images/rainy.svg");
+		setBackgroundColor();
+	} 
+	
+	else if (choice === "windy"){
+		icon.setAttribute("src", "images/windy.svg");
+		setBackgroundColor();
+	} 
+	
+	else{
+		icon.setAttribute("src", "images/cloud-off.svg");
+		setBackgroundColor();
+	}
+	/* STEP 3: Add a nested IF/ELSE statement inside the 'sunny' condition above that tests for temperature, and if it is equal to or greater than 15, turn the page background orange, otherwise turn it lightblue */
+	function setBackgroundColor() {
+		if (temperature >= 15) {
+			page.style.backgroundColor = "orange";
+		} else{
+			page.style.backgroundColor = "lightblue";
+		}
+	}
+
 	/* STEP 4: Logical operators - and, or, not (delete multi-line comment delimiters below) */
 	// STEP 4a: AND - && (It's sunny AND it's at least 15deg)
-/*
-	if () {
+
+	if (choice === "sunny" && temperature >= 15) {
 		comments.textContent = 'It is sunny and warm — time to find your sunglasses!';
 	// STEP 4b: AND, once again - && (It's sunny AND it's less than 15deg)
-	} else if () {
+	} else if (choice === "sunny" && temperature < 15) {
 		comments.textContent = 'It is sunny out there, but it is a bit cool.';
 	// STEP 4c: OR - || (It's windy OR rainy)
-	} else if () {
+	} else if (choice === "windy" | choice === "rainy") {
 		comments.textContent = 'The weather today is a bit unsettled.';
 	} else {
 		comments.textContent = 'You did not specify the type of weather, today.';
 	}
 	// STEP 4d: NOT - ! (It's NOT rainy)
-	if () {
+	if (choice !== "rainy") {
 		comments.textContent += ' No sign of rain.';
 	}
-*/
+
 	// Weather icons by Cole Bemis - https://feathericons.com/, MIT, https://commons.wikimedia.org/w/index.php?curid=60153354
 
 } // End of setWeather() function
@@ -72,18 +97,24 @@ let speed = Number(windSpeed.value);
 // STEP 5a: Build the SWITCH code block
 
 	// STEP 5b: Build out four cases, followed by a default
-
-		// 100 km/h
+      switch(speed)
+	  {
+		case 100:
 		windComment.textContent = speed + 'km/h - Holy schmoly! Hold on to your hat!';
-
-		// 75 km/h
+		break;
+		case 75:
 		windComment.textContent = speed + 'km/h - It\'s a-howling out there!';
-
-		// 50 km/h
+		break;
+		case 50:
 		windComment.textContent = speed + 'km/h - Quite gusty out there, today.';
-
-		// 25 km/h
+		break;
+		case 25:
 		windComment.textContent = speed + 'km/h - A wee bit breezy.';
+		break;
+		default:
+		windComment.textContent = speed + 'km/h - Not much wind at all.';
+		break;
+	  }
 
 } // End of getWindSpeed() function
 
@@ -93,5 +124,6 @@ This piece of syntax is a bit less typing, but it is harder to read */
 let breakMessage = document.querySelector('#breakTime');
 let coffeeBreak = true;
 
+breakMessage.textContent = coffeeBreak ? 'Time for a coffee break!' : 'No coffee break today.';
 
 // This page inspired by and adapted from https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/conditionals
