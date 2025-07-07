@@ -1,5 +1,6 @@
 // STEP 1: Initialize and declare variables
-
+const displayedImage = document.querySelector('.displayed-img');
+const thumbBar = document.querySelector('.thumb-bar');
 
 /* STEP 2: Loop 5 times to create the <img> elements */
 
